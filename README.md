@@ -1,8 +1,9 @@
 # scrcpy
-Display and control your Android device 
+Display and control your Android device.
 
 ```
 kcp -u
+kcp -i android-tools -d
 kcp -i srccpy
 ```
 
