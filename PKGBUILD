@@ -1,5 +1,5 @@
 pkgname=scrcpy
-pkgver=1.22
+pkgver=1.24
 pkgrel=1
 pkgdesc='Display and control your Android device'
 arch=('x86_64')
@@ -9,8 +9,8 @@ depends=('ffmpeg' 'sdl2' 'android-tools')
 makedepends=('meson')
 source=("https://github.com/Genymobile/scrcpy/archive/v${pkgver}.tar.gz"
         "scrcpy-server-v${pkgver}.jar::https://github.com/Genymobile/scrcpy/releases/download/v${pkgver}/scrcpy-server-v${pkgver}")
-md5sums=('c9e85c62a602a70732f92cd0b6b903c3'
-         '07cf14d4a7bfcdd2016d363241bf60e8')
+md5sums=('a06005d880ca863181266820d91ac396'
+         '23032394c932e4de6a98aaec096fe9c4')
 
 src_name="scrcpy-${pkgver}"
 src_server="scrcpy-server-v${pkgver}.jar"
