@@ -6,6 +6,8 @@ Display and control your Android device on your PC using USB cable or wirelessly
 
 This application mirrors Android devices (video and audio) connected via USB or over TCP/IP, and allows to control the device with the keyboard and the mouse of the computer. It does not require any root access. It works on Linux, Windows and macOS.
 
+#### Install
+
 ```
 kcp -i scrcpy
 ```
