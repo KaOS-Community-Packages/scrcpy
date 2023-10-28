@@ -1,33 +1,31 @@
 pkgname=scrcpy
+_pkgname=scrcpy-server
 pkgver=2.1.1
 pkgrel=1
-pkgdesc='Display and control your Android device'
+pkgdesc='Display and control your Android device on your PC using USB cable or wirelessly via WiFi.'
 arch=('x86_64')
 url='https://github.com/Genymobile/scrcpy'
 license=('Apache')
 depends=('ffmpeg' 'sdl2' 'android-tools')
-makedepends=('meson')
-source=("https://github.com/Genymobile/scrcpy/archive/v${pkgver}.tar.gz"
-        "scrcpy-server-v${pkgver}.jar::https://github.com/Genymobile/scrcpy/releases/download/v${pkgver}/scrcpy-server-v${pkgver}")
-md5sums=('0b07a22004bc662069c1aa79c8e55238'
-         '733fbe8d045c627be732a92fc48d9df7')
-
-src_name="scrcpy-${pkgver}"
-src_server="scrcpy-server-v${pkgver}.jar"
+makedepends=('meson' 'ninja')
+optdepends=('android-udev-rules')
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/Genymobile/scrcpy/archive/refs/tags/v${pkgver}.tar.gz"
+        "${_pkgname}-${pkgver}.jar::https://github.com/Genymobile/scrcpy/releases/download/v${pkgver}/scrcpy-server-v${pkgver}")
+md5sums=('SKIP' 'SKIP')
 
 build() {
-    cd "${src_name}"
+    cd "${pkgname}-${pkgver}"
 
     rm -rf build
     meson build --buildtype release --strip -Db_lto=true \
-        -Dprebuilt_server="../${src_server}"
+        -Dprebuilt_server="../${_pkgname}-${pkgver}.jar"
     cd build
     ninja
 }
 
 package() {
-    install -Dm 755 "${src_name}/build/app/scrcpy" "${pkgdir}/usr/bin/scrcpy"
-    install -Dm 644 "${src_server}" "${pkgdir}/usr/local/share/scrcpy/scrcpy-server"
-    mkdir -p "${pkgdir}/usr/bin"
+    install -dm 755 "${pkgdir}/usr/bin"
+    install -dm 755 "${pkgdir}/usr/local/share/scrcpy"
+    install -Dm 755 "${pkgname}-${pkgver}/build/app/scrcpy" "${pkgdir}/usr/bin/scrcpy"
+    install -Dm 644 "${_pkgname}-${pkgver}.jar" "${pkgdir}/usr/local/share/scrcpy/scrcpy-server"
 }
-

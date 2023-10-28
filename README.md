@@ -1,17 +1,16 @@
-# scrcpy
-Display and control your Android device.
+# Screen Copy (scrcpy)
+
+#### [SOURCE](https://github.com/Genymobile/scrcpy/tree/master)
+
+Display and control your Android device on your PC using USB cable or wirelessly via WiFi.
+
+This application mirrors Android devices (video and audio) connected via USB or over TCP/IP, and allows to control the device with the keyboard and the mouse of the computer. It does not require any root access. It works on Linux, Windows and macOS.
 
 ```
-kcp -u
-kcp -i android-tools -d
-kcp -i srccpy
+kcp -i scrcpy
 ```
 
-Recommended for Android 12+, install [android-udev-rules](https://github.com/KaOS-Community-Packages/android-udev-rules)
-```shell
-kcp -u
-kcp -i android-udev-rules -d
+*Recommended for a more reliable connection with Android devices [android-udev-rules](https://github.com/KaOS-Community-Packages/android-udev-rules)*
 ```
-
-[scrcpy repository page](https://github.com/KaOS-Community-Packages/scrcpy)
-
+kcp -i android-udev-rules
+```
