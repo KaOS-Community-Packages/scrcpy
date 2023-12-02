@@ -1,6 +1,6 @@
 pkgname=scrcpy
 _pkgname=scrcpy-server
-pkgver=2.2
+pkgver=2.3
 pkgrel=1
 pkgdesc='Display and control your Android device on your PC using USB cable or wirelessly via WiFi.'
 arch=('x86_64')
@@ -11,8 +11,8 @@ makedepends=('meson' 'ninja')
 optdepends=('android-udev-rules')
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/Genymobile/scrcpy/archive/refs/tags/v${pkgver}.tar.gz"
         "${_pkgname}-${pkgver}.jar::https://github.com/Genymobile/scrcpy/releases/download/v${pkgver}/scrcpy-server-v${pkgver}")
-md5sums=('08a569f0810ccde75d5b9023fe823b64'
-         '16916ff6ab7d7977896d24de82db28b6')
+md5sums=('c162f223f047195317e281283a5bb7fd'
+         'b93e919ffe21dc379aeeebc6c857ac28')
 
 build() {
     cd "${pkgname}-${pkgver}"
